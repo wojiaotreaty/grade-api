@@ -15,9 +15,16 @@ public final class GetAverageGradeUseCase {
     public float getAverageGrade(String course) {
         // TODO: Get average grade for all students in your team.
         Team team = gradeDB.getMyTeam();
-        String[] teamMembers = team.getMembers();
-        ArrayList<Integer> allGrades = new ArrayList<>();
+
+        System.out.println(team);
+
         GetGradeUseCase getGradeUseCase = new GetGradeUseCase(gradeDB);
+
+
+        String[] teamMembers = team.getMembers();
+
+
+        ArrayList<Integer> allGrades = new ArrayList<>();
 
         for (String member : teamMembers){
             allGrades.add(getGradeUseCase.getGrade(member, course).getGrade());
